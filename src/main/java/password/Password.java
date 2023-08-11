@@ -32,8 +32,8 @@ public class Password extends HttpServlet {
     }
 
     private boolean BannedPwd(String password) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("banned-passwords.txt"));
+    	String path = "/home/fawwaz/eclipse-workspace/webDevelopment/src/main/java/banned-passwords.txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.equals(password)) {
